@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-6">
+    <h1>Jobs</h1>
+  </div>
+  <div class="col-md-6 col-sm-6 col-6 text-right">
+    <a class="btn btn-outline-primary" href="<%= new_job_path %>">New</a>
+  </div>
+</div>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>User</th>
+      <th>Scheduled date</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.customer %></td>
+        <td><%= job.user %></td>
+        <td><%= job.scheduled_date %></td>
+        <td><%= job.status %></td>
+        <td><%= link_to 'Show', job %></td>
+        <td><%= link_to 'Edit', edit_job_path(job) %></td>
+        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job', new_job_path %>

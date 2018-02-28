@@ -1,0 +1,41 @@
+<%= simple_form_for(@customer) do |f| %>
+  <%= f.error_notification %>
+
+
+  <div class="form-inputs">
+    <h5 class="subheading-form">Details:</h5>
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.input :business_name %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :contact_first_name %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :contact_last_name %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :phone %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :email %>
+      </div>
+    </div>
+    <h5 class="subheading-form">Address:</h5>
+    <%= f.input :address1 %>
+    <%= f.input :address2 %>
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.input :city %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :state %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Submit", class: "btn btn-outline-primary" %>
+  </div>
+  <br>
+<% end %>

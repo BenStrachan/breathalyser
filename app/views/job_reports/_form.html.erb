@@ -1,0 +1,54 @@
+<%= simple_form_for(@job_report) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <h5 class="subheading-form">Details:</h5>
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.association :job, collection: Job.order(:customer), prompt: "Choose a job"  %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :customer %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :user %>
+      </div>
+    </div>
+    <h5 class="subheading-form">Service report:</h5>
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.input :serial_number %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :service_date %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :previous_date %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :clean_air %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :manual_gas %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :gas_level %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :total_count %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :download %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :raw_reading %>
+      </div>
+    </div>
+    <%= f.input :comment, :as => :text, :input_html => {:rows => 5}  %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Submit", class: "btn btn-outline-primary" %>
+  </div>
+  <br>
+<% end %>

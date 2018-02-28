@@ -1,0 +1,30 @@
+<%= simple_form_for @job do |f| %>
+  <%= f.error_notification %>
+  <h5 class="subheading-form">Details:</h5>
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.association :customer, collection: Customer.order(:id, :contact_first_name).select(:id, :contact_first_name), prompt: "Choose a customer" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :user %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :status, collection: ['Allocated', 'Completed'] %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :completed_date, input_html: { class: 'datepicker' } %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :scheduled_date %>
+      </div>
+    </div>
+    <%= f.input :title %>
+    <%= f.input :description, :as => :text, :input_html => {:rows => 5} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Submit", class: "btn btn-outline-primary" %>
+  </div>
+  <br>
+<% end %>
