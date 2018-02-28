@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <div class="row">
       <div class="col-md-4">
-        <%= f.association :customer, collection: Customer.order(:id, :contact_first_name).select(:id, :contact_first_name), prompt: "Choose a customer" %>
+        <%= f.association :customer, collection: Customer.order(:contact_first_name).pluck(:contact_first_name, :id), prompt: "Choose a customer" %>
       </div>
       <div class="col-md-4">
         <%= f.input :user %>
