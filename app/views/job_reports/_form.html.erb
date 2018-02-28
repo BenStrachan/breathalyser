@@ -5,7 +5,7 @@
     <h5 class="subheading-form">Details:</h5>
     <div class="row">
       <div class="col-md-4">
-        <%= f.association :job, collection: Job.order(:customer), prompt: "Choose a job"  %>
+        <%= f.association :job, collection: Job.order(:id).pluck(:id, :id), prompt: "Choose a job"  %>
       </div>
       <div class="col-md-4">
         <%= f.input :customer %>

@@ -4,10 +4,10 @@
   <div class="form-inputs">
     <div class="row">
       <div class="col-md-4">
-        <%= f.association :customer, collection: Customer.order(:contact_first_name).pluck(:contact_first_name, :id), prompt: "Choose a customer" %>
+        <%= f.association :customer, collection: Customer.order(:business_name).pluck(:business_name, :id), prompt: "Choose a customer" %>
       </div>
       <div class="col-md-4">
-        <%= f.input :user %>
+        <%= f.association :user, collection: User.order(:first_name).pluck(:first_name, :id), prompt: "Choose a user"  %>
       </div>
       <div class="col-md-4">
         <%= f.input :status, collection: ['Allocated', 'Completed'] %>
