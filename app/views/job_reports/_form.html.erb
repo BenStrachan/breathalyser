@@ -20,10 +20,10 @@
         <%= f.input :serial_number %>
       </div>
       <div class="col-md-4">
-        <%= f.input :service_date %>
+        <%= f.input :service_date, input_html: { class: 'datepicker' }  %>
       </div>
       <div class="col-md-4">
-        <%= f.input :previous_date %>
+        <%= f.input :previous_date, input_html: { class: 'datepicker' }  %>
       </div>
       <div class="col-md-4">
         <%= f.input :clean_air %>
