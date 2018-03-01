@@ -1,3 +1,45 @@
+<div class="border-form margin-bottom">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="usr">Certificate:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="usr">Customer:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="usr">User:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="usr">Start:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="usr">End:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary filter-button">Search</button>
+    </div>
+  </div>
+</div>
+
+<strong>Quick select:</strong> <a href="#"><%= current_user.first_name %> job reports</a> | <a href="#">Certificate not sent</a> | <a href="#">All users job reports</a>
+<br>
+<br>
+
 <div class="row">
   <div class="col-md-6 col-sm-6 col-6">
     <h1>Job Reports</h1>
@@ -21,13 +63,13 @@
   <tbody>
     <% @job_reports.each do |job_report| %>
       <tr>
-        <td><%= job_report.job %></td>
-        <td><%= job_report.customer %></td>
-        <td><%= job_report.user %></td>
+        <td><%= job_report.job.id %></td>
+        <td><%= job_report.customer.business_name %></td>
+        <td><%= job_report.user.first_name %></td>
         <td><%= job_report.service_date %></td>
-        <td><%= link_to 'Show', job_report %></td>
-        <td><%= link_to 'Edit', edit_job_report_path(job_report) %></td>
-        <td><%= link_to 'Destroy', job_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td></td>
+        <td> <a href="#">Send Certificate</a> </td>
+        <td><%= link_to 'Show', job_report %> | <%= link_to 'Edit', edit_job_report_path(job_report) %> | <%= link_to 'Destroy', job_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

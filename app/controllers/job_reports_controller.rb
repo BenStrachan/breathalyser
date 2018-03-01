@@ -69,6 +69,6 @@ class JobReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_report_params
-      params.require(:job_report).permit(:job, :customer, :user, :serial_number, :service_date, :previous_date, :clean_air, :manual_gas, :gas_level, :total_count, :download, :raw_reading, :comment)
+      params.require(:job_report).permit(:job_id, :user_id, :customer_id, :job, :customer, :user, :serial_number, :service_date, :previous_date, :clean_air, :manual_gas, :gas_level, :total_count, :download, :raw_reading, :comment)
     end
 end
