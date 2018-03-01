@@ -30,6 +30,7 @@ gem 'bootstrap-datepicker-rails', '~> 1.7', '>= 1.7.1.1'
 gem "paperclip", "~> 5.2.1"
 gem 'aws-sdk', '~> 2.3'
 gem 'simple-form-datepicker'
+gem 'ransack'
 
 
 group :development, :test do

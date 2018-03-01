@@ -1,10 +1,9 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
-  # GET /jobs
-  # GET /jobs.json
   def index
-    @jobs = Job.all
+    @query = Job.ransack(params[:q])
+    @jobs = @query.result
   end
 
   # GET /jobs/1
