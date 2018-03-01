@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :job_reports
-  resources :jobs
-  resources :customers
+
   root to: 'visitors#index'
 
   devise_for :users, controllers: {
@@ -10,6 +8,18 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     invitations: 'users/invitations',
   }
+
+  namespace :app do
+    get 'dashboard' => 'dashboards#index',  as: :dashboards
+    resources :job_reports
+    resources :jobs
+    resources :customers
+    resources :users do
+      collection do
+        get :profile
+      end
+    end
+  end
 
   namespace :admin do
     resources :users
