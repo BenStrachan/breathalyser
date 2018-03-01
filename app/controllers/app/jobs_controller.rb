@@ -1,4 +1,5 @@
 class App::JobsController < ApplicationController
+  layout 'admin'
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index

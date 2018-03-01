@@ -1,4 +1,5 @@
 class App::CustomersController < ApplicationController
+  layout 'admin'
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers

@@ -1,4 +1,5 @@
 class App::JobReportsController < ApplicationController
+  layout 'admin'
   before_action :set_job_report, only: [:show, :edit, :update, :destroy]
 
   # GET /job_reports

@@ -18,7 +18,7 @@
     <h1>Customers</h1>
   </div>
   <div class="col-md-6 col-sm-6 col-6 text-right">
-    <a class="btn btn-outline-primary" href="<%= new_customer_path %>">New</a>
+    <a class="btn btn-outline-primary" href="<%= new_app_customer_path %>">New</a>
   </div>
 </div>
 
@@ -39,9 +39,9 @@
         <td><%= customer.business_name %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.email %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', app_customer_path(customer) %></td>
+        <td><%= link_to 'Edit', edit_app_customer_path(customer) %></td>
+        <td><%= link_to 'Destroy', app_customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
