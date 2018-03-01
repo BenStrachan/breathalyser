@@ -13,6 +13,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require moment
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap-datepicker
