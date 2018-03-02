@@ -63,13 +63,13 @@
   <tbody>
     <% @job_reports.each do |job_report| %>
       <tr>
-        <td><%= job_report.job.id %></td>
+        <td><%= job_report.job&.id %></td>
         <td><%= job_report.customer.business_name %></td>
         <td><%= job_report.user.first_name %></td>
         <td><%= job_report.service_date %></td>
         <td></td>
         <td> <a href="#">Send Certificate</a> </td>
-        <td><%= link_to 'Show', app_job_report(job_report) %> | <%= link_to 'Edit', edit_job_report_path(job_report) %> | <%= link_to 'Destroy', app_job_report(job_report), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', app_job_report_path(job_report) %> | <%= link_to 'Edit', edit_app_job_report_path(job_report) %> | <%= link_to 'Destroy', app_job_report_path(job_report), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

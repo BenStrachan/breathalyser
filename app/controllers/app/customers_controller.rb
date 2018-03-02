@@ -5,7 +5,8 @@ class App::CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @query = Customer.ransack(params[:q])
+    @customers = @query.result
   end
 
   # GET /customers/1

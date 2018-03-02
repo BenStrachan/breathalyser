@@ -5,7 +5,8 @@ class App::JobReportsController < ApplicationController
   # GET /job_reports
   # GET /job_reports.json
   def index
-    @job_reports = JobReport.all
+    @query = JobReport.ransack(params[:q])
+    @job_reports = @query.result
   end
 
   # GET /job_reports/1
@@ -29,7 +30,7 @@ class App::JobReportsController < ApplicationController
 
     respond_to do |format|
       if @job_report.save
-        format.html { redirect_to @job_report, notice: 'Job report was successfully created.' }
+        format.html { redirect_to app_job_reports_path, notice: 'Job report was successfully created.' }
         format.json { render :show, status: :created, location: @job_report }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class App::JobReportsController < ApplicationController
   def update
     respond_to do |format|
       if @job_report.update(job_report_params)
-        format.html { redirect_to @job_report, notice: 'Job report was successfully updated.' }
+        format.html { redirect_to app_job_reports_path, notice: 'Job report was successfully updated.' }
         format.json { render :show, status: :ok, location: @job_report }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class App::JobReportsController < ApplicationController
   def destroy
     @job_report.destroy
     respond_to do |format|
-      format.html { redirect_to job_reports_url, notice: 'Job report was successfully destroyed.' }
+      format.html { redirect_to app_job_reports_path, notice: 'Job report was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
