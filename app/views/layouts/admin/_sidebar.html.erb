@@ -16,6 +16,28 @@
           <i class="fa fa-laptop"></i> <span> Dashboard</span>
         </a>
       </li>
+      <% if can?(:manage, User)%>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= admin_users_path %>">
+            <i class="fa fa-user"></i> Users
+          </a>
+        </li>
+      <% end %>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= app_customers_path %>">
+          <i class="fa fa-user"></i> Customers
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= app_jobs_path %>">
+          <i class="fa fa-file"></i> Jobs
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= app_job_reports_path %>">
+          <i class="fa fa-signal"></i> Job reports
+        </a>
+      </li>
       <li>
         <a href="<%= profile_app_users_path %>">
           <i class="fa fa-cog"></i> <span> Settings</span>

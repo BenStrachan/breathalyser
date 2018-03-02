@@ -1,5 +1,5 @@
 <div class="border-form margin-bottom">
-  <%= search_form_for @query do |f| %>
+  <%= search_form_for @query, url: app_jobs_path do |f| %>
   <div class="row">
     <div class="col-md-2">
       <div class="form-group">
@@ -32,6 +32,7 @@
       </div>
     </div>
     <div class="col-md-2">
+      <label style="display: block;">&nbsp;</label>
       <button type="submit" class="btn btn-primary filter-button ">Search</button>
     </div>
   </div>
@@ -72,7 +73,7 @@
         <td><%= job.status %></td>
         <td></td>
         <td> <a href="#">Job report</a> </td>
-        <td><%= link_to 'Show', job %> | <%= link_to 'Edit', edit_app_job_path(job) %> | <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', app_job_path(job) %> | <%= link_to 'Edit', edit_app_job_path(job) %> | <%= link_to 'Destroy', app_job_path(job), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
