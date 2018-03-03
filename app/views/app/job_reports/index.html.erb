@@ -1,48 +1,53 @@
-<div class="border-form margin-bottom">
-  <div class="row">
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="usr">Certificate:</label>
-        <input type="text" class="form-control" id="usr">
+<div class="box">
+  <div class="box-header">
+  </div>
+  <div class="box-body">
+    <div class="border-form margin-bottom">
+      <%= search_form_for @query, url: app_job_reports_path do |f| %>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <%= f.search_field :customer_business_name_cont, class: 'form-control', placeholder: 'Customer' %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <%= f.search_field :user, class: 'form-control', placeholder: 'User' %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <%= f.search_field :customer_business_name_cont, class: 'form-control', placeholder: 'Certificate' %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <input type="text" class="form-control datepicker" id="usr" placeholder="Start date">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <input type="text" class="form-control datepicker" id="usr" placeholder="End date">
+          </div>
+        </div>
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-default">Search</button>
+        </div>
       </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="usr">Customer:</label>
-        <input type="text" class="form-control" id="usr">
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="usr">User:</label>
-        <input type="text" class="form-control" id="usr">
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="usr">Start:</label>
-        <input type="text" class="form-control" id="usr">
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="usr">End:</label>
-        <input type="text" class="form-control" id="usr">
-      </div>
-    </div>
-    <div class="col-md-2">
-      <button type="button" class="btn btn-primary filter-button">Search</button>
+      <% end %>
     </div>
   </div>
 </div>
 
-<strong>Quick select:</strong> <a href="#"><%= current_user.first_name %> job reports</a> | <a href="#">Certificate not sent</a> | <a href="#">All users job reports</a>
-<br>
-<br>
 
 <div class="box">
-  <div class="box-header with-border">
-    <h3 class="box-title">Job reports</h3>
+  <div class="box-header">
+  <h3 class="box-title">Job Reports</h3>
+    <div class="box-tools">
+      <ul class="pull-right">
+        <a href="<%= new_app_job_report_path %>" class="btn btn-block btn-default btn-sm">New job report</a>
+      </ul>
+    </div>
   </div>
   <div class="box-body">
     <table class="table table-bordered">

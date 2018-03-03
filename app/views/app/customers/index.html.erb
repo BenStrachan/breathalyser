@@ -1,22 +1,26 @@
-<div class="border-form margin-bottom">
-  <div class="row">
-    <div class="col-md-12">
-      <form>
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-primary">Search</button>
-          </div>
+
+<%= search_form_for @query, url: app_customers_path do |f| %>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-11">
+          <%= f.search_field :business_name_cont, class: 'form-control', placeholder: 'Search ..' %>
         </div>
-      </form>
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-default">Search</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+<% end %>
 
 
 <div class="box">
-  <div class="box-header with-border">
-    <h3 class="box-title">Customers</h3>
+  <div class="box-header">
+  <h3 class="box-title">Customers</h3>
+    <div class="box-tools">
+      <ul class="pull-right">
+        <a href="<%= new_app_customer_path %>" class="btn btn-block btn-default btn-sm">New customer</a>
+      </ul>
+    </div>
   </div>
   <div class="box-body">
     <table class="table table-bordered">
