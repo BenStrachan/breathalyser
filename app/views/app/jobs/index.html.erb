@@ -22,12 +22,12 @@
         </div>
         <div class="col-md-2">
           <div class="form-group">
-            <input type="text" class="form-control datepicker" id="usr" placeholder="Start date">
+            <%= f.search_field :scheduled_date_gteq, class: 'form-control datepicker', placeholder: 'Start date' %>
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-            <input type="text" class="form-control datepicker" id="usr" placeholder="End date">
+            <%= f.search_field :scheduled_date_lt, class: 'form-control datepicker', placeholder: 'End date' %>
           </div>
         </div>
         <div class="col-md-1">
@@ -73,7 +73,7 @@
             <td></td>
             <td> <a href="#">Job report</a> </td>
             <td>
-              <%= link_to 'Show', app_job_path(job) %> | <%= link_to 'Edit', edit_app_job_path(job) %> | <%= link_to 'Destroy', app_job_path(job), method: :delete, data: { confirm: 'Are you sure?' } %> 
+              <%= link_to 'Show', app_job_path(job) %> | <%= link_to 'Edit', edit_app_job_path(job) %> | <%= link_to 'Destroy', app_job_path(job), method: :delete, data: { confirm: 'Are you sure?' } %>
             </td>
           </tr>
         <% end %>
