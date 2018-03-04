@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   namespace :app do
     get 'dashboard' => 'dashboards#index',  as: :dashboards
     resources :job_reports
-    resources :jobs
+    resources :jobs do
+      member do
+        post :repeat
+      end
+    end
     resources :customers
     resources :users do
       collection do

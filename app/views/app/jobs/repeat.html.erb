@@ -1,0 +1,30 @@
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">Repeat job #<%= @job.id %></h3>
+  </div>
+  <div class="box-body">
+    <%= simple_form_for :jobs, url: handle_repeat_app_job_path do |f| %>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Repeat</label>
+            <select name="type" class="form-control">
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <label>Number of repeats</label>
+          <input type="number" name="repeats" class="form-control" value="1">
+        </div>
+      </div>
+      <div class="text-left">
+        <button class="btn btn-success">
+          Submit
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
-class App::JobsController < ApplicationController
+class App::JobsController < App::BaseController
   layout 'admin'
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, only: [:show, :edit, :update, :destroy, :repeat]
 
   def index
     @query = Job.ransack(params[:q])
@@ -28,6 +28,28 @@ class App::JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
+        if params[:type] != 'none'
+          clone_job = @job
+          (1..params[:repeats].to_i).each do |index|
+            clone_job = clone_job.dup
+            case params[:type]
+              when 'weekly'
+                clone_job.scheduled_date = clone_job.scheduled_date.to_date + 1.week
+                clone_job.completed_date = clone_job.completed_date.to_date + 1.week if clone_job.completed_date.try(:to_date)
+                
+              when 'monthly'
+                clone_job.scheduled_date = clone_job.scheduled_date.to_date + 1.month
+                clone_job.completed_date = clone_job.completed_date.to_date + 1.month if clone_job.completed_date.try(:to_date)
+              when 'yearly'
+                clone_job.scheduled_date = clone_job.scheduled_date.to_date + 1.year
+                clone_job.completed_date = clone_job.completed_date.to_date + 1.year if clone_job.completed_date.try(:to_date)
+            end
+            clone_job.scheduled_date = clone_job.scheduled_date.to_date.strftime("%B %d %Y")
+            clone_job.completed_date = clone_job.completed_date.to_date.strftime("%B %d %Y") if clone_job.completed_date.try(:to_date)
+            clone_job.save
+          end
+        end
+
         format.html { redirect_to app_jobs_path, notice: 'Job was successfully created.' }
         format.json { render :show, status: :created, location: @job }
       else

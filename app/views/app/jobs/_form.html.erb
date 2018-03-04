@@ -25,8 +25,40 @@
     <%= f.input :description, :as => :text, :input_html => {:rows => 5} %>
   </div>
 
+  <% if @job.new_record? %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label>Repeat</label>
+        <select name="type" class="form-control" id="repeat-type">
+          <option value="none" selected>None</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-6 box-number-repeats" style="display: none;">
+      <label>Number of repeats</label>
+      <input type="number" name="repeats" class="form-control" value="1" min="1">
+    </div>
+  </div>
+  <% end %>
+
   <div class="form-actions">
     <%= f.button :submit, "Submit", class: "btn btn-outline-primary" %>
   </div>
   <br>
+<% end %>
+
+<% content_for :page_js do %>
+  <script type="text/javascript">
+    $("#repeat-type").change(function(event) {
+      if($(this).val() == 'none') {
+        $('.box-number-repeats').slideUp(0);
+      }else {
+        $('.box-number-repeats').slideDown(0);
+      }
+    });
+  </script>
 <% end %>
