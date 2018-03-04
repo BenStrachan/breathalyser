@@ -1,5 +1,11 @@
 @import "bootstrap.min";
 @import "AdminLTE.min";
 @import "font-awesome-sprockets";
+@import "bootstrap-material-datetimepicker";
 @import "font-awesome";
 @import "_all-skins.min";
+
+.btn.btn-flat {
+  font-weight: 600;
+  background: transparent;
+}

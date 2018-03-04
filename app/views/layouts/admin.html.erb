@@ -5,6 +5,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Companion" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Template" %>">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
     <%= stylesheet_link_tag 'admin', media: 'all'%>
     <%= javascript_include_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
