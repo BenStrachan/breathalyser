@@ -1,16 +1,20 @@
+<div class="box">
+  <div class="box-body">
+    <%= search_form_for @query, url: app_customers_path do |f| %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-11">
+              <%= f.search_field :business_name_cont, class: 'form-control', placeholder: 'Search ..' %>
+            </div>
+            <div class="col-md-1">
+              <button type="submit" class="btn btn-default">Search</button>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
 
-<%= search_form_for @query, url: app_customers_path do |f| %>
-    <div class="form-group">
-      <div class="row">
-        <div class="col-md-11">
-          <%= f.search_field :business_name_cont, class: 'form-control', placeholder: 'Search ..' %>
-        </div>
-        <div class="col-md-1">
-          <button type="submit" class="btn btn-default">Search</button>
-        </div>
-      </div>
-    </div>
-<% end %>
 
 
 <div class="box">
