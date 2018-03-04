@@ -6,7 +6,8 @@ class App::JobReportsController < ApplicationController
   # GET /job_reports.json
   def index
     @query = JobReport.ransack(params[:q])
-    @job_reports = @query.result
+    @job_reports = @query.result(scheduled_date: :desc)
+                                     .page(params[:page])
   end
 
   # GET /job_reports/1

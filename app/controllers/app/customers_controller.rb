@@ -6,7 +6,8 @@ class App::CustomersController < ApplicationController
   # GET /customers.json
   def index
     @query = Customer.ransack(params[:q])
-    @customers = @query.result
+    @customers = @query.result.order(business_name: :desc)
+                                     .page(params[:page])
   end
 
   # GET /customers/1

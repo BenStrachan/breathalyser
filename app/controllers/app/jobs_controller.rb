@@ -4,7 +4,8 @@ class App::JobsController < App::BaseController
 
   def index
     @query = Job.ransack(params[:q])
-    @jobs = @query.result
+    @jobs = @query.result(scheduled_date: :desc)
+                                     .page(params[:page])
   end
 
   # GET /jobs/1
@@ -36,7 +37,7 @@ class App::JobsController < App::BaseController
               when 'weekly'
                 clone_job.scheduled_date = clone_job.scheduled_date.to_date + 1.week
                 clone_job.completed_date = clone_job.completed_date.to_date + 1.week if clone_job.completed_date.try(:to_date)
-                
+
               when 'monthly'
                 clone_job.scheduled_date = clone_job.scheduled_date.to_date + 1.month
                 clone_job.completed_date = clone_job.completed_date.to_date + 1.month if clone_job.completed_date.try(:to_date)
