@@ -1,6 +1,6 @@
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title">Customer</h3>
+    <h3 class="box-title">Customer: <%= @customer.business_name %></h3>
   </div>
   <div class="box-body">
     <p>
@@ -16,6 +16,11 @@
     <p>
       <strong>Contact last name:</strong>
       <%= @customer.contact_last_name %>
+    </p>
+
+    <p>
+      <strong>Region:</strong>
+      <%= @customer.region %>
     </p>
 
     <p>
@@ -53,23 +58,31 @@
       <%= @customer.country %>
     </p>
 
+  </div>
+</div>
 
-    <hr>
-    <p>Links</p>
-    <ul>
-      <li>
-        <a href="#">Pending jobs</a>
-      </li>
-      <li>
-        <a href="#">Allocated jobs</a>
-      </li>
-      <li>
-        <a href="#">Completed jobs</a>
-      </li>
-      <li>
-        <a href="#">Job reports</a>
-      </li>
-    </ul>
-
+<div class="box">
+  <div class="box-header with-border">
+    <h5 class="box-title"><%= @customer.business_name %>'s Jobs</h5>
+  </div>
+  <div class="box-body">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Completed date</th>
+          <th>Job report</th>
+          <th>Invoice ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#2</td>
+          <td>January 8 2018</td>
+          <td>#2</td>
+          <td>234JK</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

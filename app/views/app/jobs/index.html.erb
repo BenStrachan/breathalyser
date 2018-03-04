@@ -1,55 +1,54 @@
-<div class="border-form margin-bottom">
-  <%= search_form_for @query, url: app_jobs_path do |f| %>
-  <div class="row">
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="usr">Status:</label>
-        <%= f.search_field :status_cont, class: 'form-control' %>
+<div class="box">
+  <div class="box-header">
+  </div>
+  <div class="box-body">
+    <div class="border-form margin-bottom">
+      <%= search_form_for @query, url: app_jobs_path do |f| %>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <%= f.search_field :customer_business_name_cont, class: 'form-control', placeholder: 'Customer' %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <%= f.search_field :user, class: 'form-control', placeholder: 'User' %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <%= f.search_field :status_cont, class: 'form-control', placeholder: 'Status' %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <input type="text" class="form-control datepicker" id="usr" placeholder="Start date">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <input type="text" class="form-control datepicker" id="usr" placeholder="End date">
+          </div>
+        </div>
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-default">Search</button>
+        </div>
       </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="usr">Customer:</label>
-        <%= f.search_field :customer_business_name_cont, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="usr">User:</label>
-        <%= f.search_field :user, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="usr">Start:</label>
-        <input type="text" class="form-control datepicker" id="usr">
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label for="usr">End:</label>
-        <input type="text" class="form-control" id="usr">
-      </div>
-    </div>
-    <div class="col-md-2">
-      <label style="display: block;">&nbsp;</label>
-      <button type="submit" class="btn btn-primary filter-button ">Search</button>
+      <% end %>
     </div>
   </div>
-  <% end %>
 </div>
 
-<strong>Quick select:</strong> <a href="#"><%= current_user.first_name %> next 14 days</a> | <a href="#"><%= current_user.first_name %> completed last 14 days</a> | <a href="#">All allocated not completed</a> | <a href="#">All not allocated</a>
-<br>
-<br>
 
 
-<div class="row">
-  <div class="col-md-6 col-sm-6 col-6">
-    <h1>Jobs</h1>
-  </div>
-  <div class="col-md-6 col-sm-6 col-6 text-right">
-    <a class="btn btn-outline-primary" href="<%= new_app_job_path %>">New</a>
+<div class="box">
+  <div class="box-header">
+  <h3 class="box-title">Jobs</h3>
+    <div class="box-tools">
+      <ul class="pull-right">
+        <a href="<%= new_app_job_path %>" class="btn btn-block btn-default btn-sm">New job</a>
+      </ul>
+    </div>
   </div>
 </div>
 

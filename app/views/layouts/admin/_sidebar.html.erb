@@ -17,30 +17,30 @@
         </a>
       </li>
       <% if can?(:manage, User)%>
-        <li class="nav-item">
-          <a class="nav-link" href="<%= admin_users_path %>">
-            <i class="fa fa-user"></i> Users
+        <li>
+          <a href="<%= admin_users_path %>">
+            <i class="fa fa-users"></i><span> Users</span>
           </a>
         </li>
       <% end %>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= app_customers_path %>">
-          <i class="fa fa-user"></i> Customers
+      <li>
+        <a href="<%= app_customers_path %>">
+          <i class="fa fa-user"></i><span> Customers</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= app_jobs_path %>">
-          <i class="fa fa-file"></i> Jobs
+      <li>
+        <a href="<%= app_jobs_path %>">
+          <i class="fa fa-file"></i><span> Jobs</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= app_job_reports_path %>">
-          <i class="fa fa-signal"></i> Job reports
+      <li>
+        <a href="<%= app_job_reports_path %>">
+          <i class="fa fa-signal"></i><span> Job reports</span>
         </a>
       </li>
       <li>
         <a href="<%= profile_app_users_path %>">
-          <i class="fa fa-cog"></i> <span> Settings</span>
+          <i class="fa fa-cog"></i><span> Settings</span>
         </a>
       </li>
     </ul>

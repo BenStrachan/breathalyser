@@ -19,6 +19,9 @@
       <div class="col-md-4">
         <%= f.input :email %>
       </div>
+      <div class="col-md-4">
+        <%= f.input :region, collection: ['Region 1', 'Region 2'] %>
+      </div>
     </div>
     <h5 class="subheading-form">Address:</h5>
     <%= f.input :address1 %>

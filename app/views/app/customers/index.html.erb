@@ -1,36 +1,37 @@
-<div class="border-form margin-bottom">
-  <div class="row">
-    <div class="col-md-12">
-      <form>
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-primary">Search</button>
+<div class="box">
+  <div class="box-body">
+    <%= search_form_for @query, url: app_customers_path do |f| %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-11">
+              <%= f.search_field :business_name_cont, class: 'form-control', placeholder: 'Search ..' %>
+            </div>
+            <div class="col-md-1">
+              <button type="submit" class="btn btn-default">Search</button>
+            </div>
           </div>
         </div>
-      </form>
-    </div>
+    <% end %>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-6 col-sm-6 col-6">
-    <h1Customers</h1>
-  </div>
-  <div class="col-md-6 col-sm-6 col-6 text-right">
-    <a class="btn btn-success" href="<%= new_app_customer_path %>">New Customer</a>
-  </div>
-</div>
+
 
 <div class="box">
-  <div class="box-header with-border">
-    <h3 class="box-title">Customers</h3>
+  <div class="box-header">
+  <h3 class="box-title">Customers</h3>
+    <div class="box-tools">
+      <ul class="pull-right">
+        <a href="<%= new_app_customer_path %>" class="btn btn-block btn-default btn-sm">New customer</a>
+      </ul>
+    </div>
   </div>
   <div class="box-body">
     <table class="table table-bordered">
       <thead>
         <tr>
           <th>Business name</th>
+          <th>Region</th>
           <th>Phone</th>
           <th>Email</th>
           <th colspan="3"></th>
@@ -41,6 +42,7 @@
         <% @customers.each do |customer| %>
           <tr>
             <td><%= customer.business_name %></td>
+            <td><%= customer.region %></td>
             <td><%= customer.phone %></td>
             <td><%= customer.email %></td>
             <td><%= link_to 'Show', app_customer_path(customer) %></td>

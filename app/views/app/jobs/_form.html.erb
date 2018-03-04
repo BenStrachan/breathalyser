@@ -1,6 +1,5 @@
 <%= simple_form_for [:app, @job] do |f| %>
   <%= f.error_notification %>
-  <h5 class="subheading-form">Details:</h5>
   <div class="form-inputs">
     <div class="row">
       <div class="col-md-4">
@@ -17,6 +16,9 @@
       </div>
       <div class="col-md-4">
         <%= f.input :scheduled_date, input_html: { class: 'datepicker' } %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :invoice_number %>
       </div>
     </div>
     <%= f.input :title %>
