@@ -19,4 +19,6 @@
 class Job < ApplicationRecord
   belongs_to :customer
   belongs_to :user, optional: true
+
+  validates_presence_of :scheduled_date
 end
