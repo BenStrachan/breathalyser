@@ -41,6 +41,15 @@ class App::JobsController < App::BaseController
               when 'monthly'
                 clone_job.scheduled_date = clone_job.scheduled_date.to_date + 1.month
                 clone_job.completed_date = clone_job.completed_date.to_date + 1.month if clone_job.completed_date.try(:to_date)
+
+              when 'quarterly'
+                clone_job.scheduled_date = clone_job.scheduled_date.to_date + 3.month
+                clone_job.completed_date = clone_job.completed_date.to_date + 3.month if clone_job.completed_date.try(:to_date)
+
+              when 'six monthly'
+                clone_job.scheduled_date = clone_job.scheduled_date.to_date + 6.month
+                clone_job.completed_date = clone_job.completed_date.to_date + 6.month if clone_job.completed_date.try(:to_date)
+
               when 'yearly'
                 clone_job.scheduled_date = clone_job.scheduled_date.to_date + 1.year
                 clone_job.completed_date = clone_job.completed_date.to_date + 1.year if clone_job.completed_date.try(:to_date)
