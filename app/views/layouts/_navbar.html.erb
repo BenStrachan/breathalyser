@@ -13,6 +13,9 @@
 <li class="nav-item">
   <a class="nav-link"><%= current_user.full_name %></a>
 </li>
+<li class="mr-2">
+  <a class="btn-outline-success btn" href="<%= app_dashboards_path %>">Dashboard</a>
+</li>
 <li class="nav-item">
   <a data-method="DELETE" class="btn-outline-danger btn" href="<%= destroy_user_session_path %>">Log out</a>
 </li>
