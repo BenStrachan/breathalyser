@@ -5,10 +5,10 @@
     <h5 class="subheading-form">Details:</h5>
     <div class="row">
       <div class="col-md-4">
-        <%= f.association :job, collection: Job.order(:id).pluck(:id, :id), prompt: "Choose a job"  %>
+        <%= f.association :customer, collection: Customer.order(:business_name).pluck(:business_name, :id), prompt: "Choose a job"   %>
       </div>
       <div class="col-md-4">
-        <%= f.association :customer, collection: Customer.order(:business_name).pluck(:business_name, :id), prompt: "Choose a job"   %>
+        <%= f.association :job, collection: Job.order(:id).pluck(:id, :id), prompt: "Choose a job"  %>
       </div>
       <div class="col-md-4">
         <%= f.association :user, collection: User.order(:first_name).pluck(:first_name, :id), prompt: "Choose a job"   %>
@@ -32,7 +32,16 @@
         <%= f.input :manual_gas %>
       </div>
       <div class="col-md-4">
+        <%= f.input :manual_gas_two %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :manual_gas_final %>
+      </div>
+      <div class="col-md-4">
         <%= f.input :gas_level %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :gas_replaced, collection: ['Yes', 'No']   %>
       </div>
       <div class="col-md-4">
         <%= f.input :total_count %>
@@ -42,6 +51,15 @@
       </div>
       <div class="col-md-4">
         <%= f.input :raw_reading %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :calibration_factor %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :calibration_successful, collection: ['Yes', 'No']  %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :consumables_invoice_number %>
       </div>
     </div>
     <%= f.input :comment, :as => :text, :input_html => {:rows => 5}  %>

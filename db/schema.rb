@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180303062458) do
+ActiveRecord::Schema.define(version: 20180306220240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(version: 20180303062458) do
     t.bigint "job_id"
     t.bigint "user_id"
     t.bigint "customer_id"
+    t.string "manual_gas_two"
+    t.string "manual_gas_final"
+    t.string "calibration_factor"
+    t.string "gas_replaced"
+    t.string "consumables_invoice_number"
+    t.string "calibration_successful"
     t.index ["customer_id"], name: "index_job_reports_on_customer_id"
     t.index ["job_id"], name: "index_job_reports_on_job_id"
     t.index ["user_id"], name: "index_job_reports_on_user_id"
