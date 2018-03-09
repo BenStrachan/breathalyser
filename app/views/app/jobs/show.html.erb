@@ -1,8 +1,16 @@
 <div class="box">
   <div class="box-header with-border">
-      <h3 class="box-title">Job details:</h3>
+    <h3 class="box-title">Job details:</h3>
+    <div class="box-tools">
+      <ul class="pull-right">
+        <a href="<%= new_app_job_report_path(customer_id: @job.customer&.id, user_id: @job.user&.id, job_id: @job.id) %>" class="btn btn-success btn-xs">
+          Job report
+        </a>
+      </ul>
+    </div>
   </div>
   <div class="box-body">
+    
     <p>
       <strong>Customer:</strong>
       <%= @job.customer.business_name %>
