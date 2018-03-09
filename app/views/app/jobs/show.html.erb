@@ -10,7 +10,7 @@
 
     <p>
       <strong>User:</strong>
-      <%= @job.user %>
+      <%= @job.user&.first_name %>
     </p>
 
     <p>
@@ -37,6 +37,15 @@
       <strong>Status:</strong>
       <%= @job.status %>
     </p>
+
+    <% if @job.attachment.exists? %>
+    <p>
+      <strong>Attachment:</strong>
+      <a href="<%= @job.attachment.url %>" target="_blank">
+        Download
+      </a>
+    </p>
+    <% end %>
 
     <p>
       <strong>Invoice number:</strong>

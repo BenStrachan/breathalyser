@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306220240) do
+ActiveRecord::Schema.define(version: 20180309035453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,10 @@ ActiveRecord::Schema.define(version: 20180306220240) do
     t.string "gas_replaced"
     t.string "consumables_invoice_number"
     t.string "calibration_successful"
+    t.string "attachment_file_name"
+    t.string "attachment_content_type"
+    t.integer "attachment_file_size"
+    t.datetime "attachment_updated_at"
     t.index ["customer_id"], name: "index_job_reports_on_customer_id"
     t.index ["job_id"], name: "index_job_reports_on_job_id"
     t.index ["user_id"], name: "index_job_reports_on_user_id"
@@ -74,6 +78,10 @@ ActiveRecord::Schema.define(version: 20180306220240) do
     t.bigint "customer_id"
     t.bigint "user_id"
     t.string "invoice_number"
+    t.string "attachment_file_name"
+    t.string "attachment_content_type"
+    t.integer "attachment_file_size"
+    t.datetime "attachment_updated_at"
     t.index ["customer_id"], name: "index_jobs_on_customer_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end

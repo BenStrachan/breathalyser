@@ -15,7 +15,7 @@
 
     <p>
       <strong>User:</strong>
-      <%= @job_report.user.first_name %>
+      <%= @job_report.user&.first_name %>
     </p>
 
     <p>
@@ -62,6 +62,15 @@
       <strong>Raw reading:</strong>
       <%= @job_report.raw_reading %>
     </p>
+
+    <% if @job_report.attachment.exists? %>
+    <p>
+      <strong>Attachment:</strong>
+      <a href="<%= @job_report.attachment.url %>" target="_blank">
+        Download
+      </a>
+    </p>
+    <% end %>
 
     <p>
       <strong>Comment:</strong>

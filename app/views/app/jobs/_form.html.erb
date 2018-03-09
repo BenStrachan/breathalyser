@@ -6,7 +6,7 @@
         <%= f.association :customer, collection: Customer.order(:business_name).pluck(:business_name, :id), prompt: "Choose a customer" %>
       </div>
       <div class="col-md-4">
-        <%= f.association :user, collection: User.order(:first_name).pluck(:first_name, :id), prompt: "Choose a user"  %>
+        <%= f.association :user, collection: options_for_users(User.order(:first_name)), prompt: "Choose a user"  %>
       </div>
       <div class="col-md-4">
         <%= f.input :status, collection: ['Allocated', 'Completed'] %>
@@ -19,6 +19,9 @@
       </div>
       <div class="col-md-4">
         <%= f.input :invoice_number %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :attachment %>
       </div>
     </div>
     <%= f.input :title %>

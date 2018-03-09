@@ -26,6 +26,10 @@
 #  invited_by_type        :string
 #  invited_by_id          :integer
 #  invitations_count      :integer          default(0)
+#  avatar_file_name       :string
+#  avatar_content_type    :string
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -15,7 +15,7 @@ class App::JobsController < App::BaseController
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = Job.new user_id: current_user.id
   end
 
   # GET /jobs/1/edit
@@ -101,6 +101,7 @@ class App::JobsController < App::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:invoice_number, :user_id, :customer_id, :customer, :user, :title, :description, :scheduled_date, :completed_date, :status)
+      params.require(:job).permit(:invoice_number, :user_id, :customer_id, :customer, :user, :title, :description, :scheduled_date, :completed_date, :status,
+        :attachment)
     end
 end

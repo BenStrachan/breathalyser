@@ -17,7 +17,9 @@ class App::JobReportsController < ApplicationController
 
   # GET /job_reports/new
   def new
-    @job_report = JobReport.new
+    @job_report = JobReport.new user_id: params[:user_id] || current_user.id,
+                                job_id: params[:job_id],
+                                customer_id: params[:customer_id]
   end
 
   # GET /job_reports/1/edit
@@ -72,6 +74,6 @@ class App::JobReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_report_params
-      params.require(:job_report).permit(:job_id, :user_id, :customer_id, :job, :customer, :user, :serial_number, :service_date, :previous_date, :clean_air, :manual_gas, :gas_level, :total_count, :download, :raw_reading, :comment, :manual_gas_two, :manual_gas_final, :calibration_factor, :gas_replaced, :consumables_invoice_number, :calibration_successful)
+      params.require(:job_report).permit(:job_id, :user_id, :customer_id, :job, :customer, :user, :serial_number, :service_date, :previous_date, :clean_air, :manual_gas, :gas_level, :total_count, :download, :raw_reading, :comment, :manual_gas_two, :manual_gas_final, :calibration_factor, :gas_replaced, :consumables_invoice_number, :calibration_successful, :attachment)
     end
 end

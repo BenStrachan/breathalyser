@@ -72,7 +72,11 @@
             <td><%= job.user&.first_name %> <%= job.user&.last_name %></td>
             <td><%= job.status %></td>
             <td></td>
-            <td> <a href="#">Job report</a> </td>
+            <td>
+              <a href="<%= new_app_job_report_path(customer_id: job.customer&.id, user_id: job.user&.id, job_id: job.id) %>">
+                Job report
+              </a>
+            </td>
             <td>
               <%= link_to 'Show', app_job_path(job) %> | <%= link_to 'Edit', edit_app_job_path(job) %> | <%= link_to 'Destroy', app_job_path(job), method: :delete, data: { confirm: 'Are you sure?' } %>
             </td>

@@ -8,10 +8,13 @@
         <%= f.association :customer, collection: Customer.order(:business_name).pluck(:business_name, :id), prompt: "Choose a job"   %>
       </div>
       <div class="col-md-4">
-        <%= f.association :job, collection: Job.order(:id).pluck(:id, :id), prompt: "Choose a job"  %>
+        <%= f.association :job, collection: options_for_jobs(Job.includes(:customer).order(:id)), prompt: "Choose a job"  %>
       </div>
       <div class="col-md-4">
-        <%= f.association :user, collection: User.order(:first_name).pluck(:first_name, :id), prompt: "Choose a job"   %>
+        <%= f.association :user, collection: options_for_users(User.order(:first_name)), prompt: "Choose a job"   %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :attachment %>
       </div>
     </div>
     <h5 class="subheading-form">Service report:</h5>
