@@ -13,6 +13,17 @@ class App::JobReportsController < ApplicationController
   # GET /job_reports/1
   # GET /job_reports/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render(
+          pdf: "Certificate",
+          file: 'pdfs/certificate',
+          locals: {
+          }
+        )
+      end
+    end
   end
 
   # GET /job_reports/new
