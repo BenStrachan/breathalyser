@@ -7,8 +7,8 @@
 #  user                    :string
 #  title                   :string
 #  description             :string
-#  scheduled_date          :string
-#  completed_date          :string
+#  scheduled_date          :date
+#  completed_date          :date
 #  status                  :string
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null

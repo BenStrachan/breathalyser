@@ -31,6 +31,7 @@
 #  attachment_content_type    :string
 #  attachment_file_size       :integer
 #  attachment_updated_at      :datetime
+#  sent_certificate_at        :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
