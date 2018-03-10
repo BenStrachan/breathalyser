@@ -1,6 +1,6 @@
 <div class="box">
   <div class="box-header">
-    <strong>Quick search:</strong> <a href="#">Option 1</a> | <a href="#">Option 2</a> | <a href="#">Option 3</a> | <a href="#">Option 4</a>
+    <strong>Search form:</strong>
   </div>
   <div class="box-body">
     <div class="border-form margin-bottom">
@@ -13,6 +13,11 @@
         </div>
         <div class="col-md-2">
           <div class="form-group">
+            <%= f.search_field :customer_business_name_cont, class: 'form-control', placeholder: 'Region' %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
             <%= f.search_field :user, class: 'form-control', placeholder: 'User' %>
           </div>
         </div>
@@ -21,12 +26,12 @@
             <%= f.search_field :status_cont, class: 'form-control', placeholder: 'Status' %>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
           <div class="form-group">
             <%= f.search_field :scheduled_date_gteq, class: 'form-control datepicker', placeholder: 'Start date' %>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
           <div class="form-group">
             <%= f.search_field :scheduled_date_lt, class: 'form-control datepicker', placeholder: 'End date' %>
           </div>

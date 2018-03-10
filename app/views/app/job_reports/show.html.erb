@@ -4,7 +4,7 @@
   </div>
   <div class="box-body">
     <p>
-      <strong>Job:</strong>
+      <strong>Job ID:</strong>
       <%= @job_report.job.id %>
     </p>
 
@@ -15,87 +15,138 @@
 
     <p>
       <strong>User:</strong>
-      <%= @job_report.user&.first_name %>
+      <%= @job_report.user&.first_name %> <%= @job_report.user&.last_name %>
     </p>
+    <br>
+    <h5 class="box-title">Job Report</h5>
+    <div class="row">
+      <div class="col-md-4">
+        <p>
+          <strong>Serial number:</strong>
+          <%= @job_report.serial_number %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Service date:</strong>
+          <%= @job_report.service_date %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Previous date:</strong>
+          <%= @job_report.previous_date %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Clean air:</strong>
+          <%= @job_report.clean_air %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Manual gas:</strong>
+          <%= @job_report.manual_gas %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Manual gas 2:</strong>
+          <%= @job_report.manual_gas_two %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Manual gas final:</strong>
+          <%= @job_report.manual_gas_final %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Gas level:</strong>
+          <%= @job_report.gas_level %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Total count:</strong>
+          <%= @job_report.total_count %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Download:</strong>
+          <%= @job_report.download %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Raw reading:</strong>
+          <%= @job_report.raw_reading %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Attachment:</strong>
+          <% if @job_report.attachment.exists? %>
+          <a href="<%= @job_report.attachment.url %>" target="_blank">
+            Download
+          </a>
+          <% end %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Comment:</strong>
+          <%= @job_report.comment %>
+        </p>
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
 
-    <p>
-      <strong>Serial number:</strong>
-      <%= @job_report.serial_number %>
-    </p>
 
-    <p>
-      <strong>Service date:</strong>
-      <%= @job_report.service_date %>
-    </p>
 
-    <p>
-      <strong>Previous date:</strong>
-      <%= @job_report.previous_date %>
-    </p>
 
-    <p>
-      <strong>Clean air:</strong>
-      <%= @job_report.clean_air %>
-    </p>
 
-    <p>
-      <strong>Manual gas:</strong>
-      <%= @job_report.manual_gas %>
-    </p>
 
-    <p>
-      <strong>Gas level:</strong>
-      <%= @job_report.gas_level %>
-    </p>
 
-    <p>
-      <strong>Total count:</strong>
-      <%= @job_report.total_count %>
-    </p>
 
-    <p>
-      <strong>Download:</strong>
-      <%= @job_report.download %>
-    </p>
 
-    <p>
-      <strong>Raw reading:</strong>
-      <%= @job_report.raw_reading %>
-    </p>
 
-    <% if @job_report.attachment.exists? %>
-    <p>
-      <strong>Attachment:</strong>
-      <a href="<%= @job_report.attachment.url %>" target="_blank">
-        Download
-      </a>
-    </p>
-    <% end %>
 
-    <p>
-      <strong>Comment:</strong>
-      <%= @job_report.comment %>
-    </p>
 
-    <p>
-      <strong>Job ID:</strong>
-      <%= @job_report.job_id %>
-    </p>
 
-    <p>
-      <strong>User ID:</strong>
-      <%= @job_report.user_id %>
-    </p>
 
-    <p>
-      <strong>Manual gas 2:</strong>
-      <%= @job_report.manual_gas_two %>
-    </p>
 
-    <p>
-      <strong>Manual gas final:</strong>
-      <%= @job_report.manual_gas_final %>
-    </p>
+
+
+
+
+
+
+
+
+
+
+
 
     <p>
       <strong>Calibration factor:</strong>

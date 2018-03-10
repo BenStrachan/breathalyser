@@ -1,14 +1,19 @@
 <div class="box">
   <div class="box-header">
-    <strong>Quick search:</strong> <a href="#">Option 1</a> | <a href="#">Option 2</a> | <a href="#">Option 3</a> | <a href="#">Option 4</a>
+    <strong>Search form:</strong>
   </div>
   <div class="box-body">
     <div class="border-form margin-bottom">
       <%= search_form_for @query, url: app_job_reports_path do |f| %>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="form-group">
             <%= f.search_field :customer_business_name_cont, class: 'form-control', placeholder: 'Customer' %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <%= f.search_field :serial_number_cont, class: 'form-control', placeholder: 'Serial number' %>
           </div>
         </div>
         <div class="col-md-2">
@@ -18,17 +23,17 @@
         </div>
         <div class="col-md-2">
           <div class="form-group">
-            <%= f.search_field :customer_business_name_cont, class: 'form-control', placeholder: 'Certificate' %>
+            <%= f.search_field :consumables_invoice_number_cont, class: 'form-control', placeholder: 'Consumables #' %>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
           <div class="form-group">
-            <input type="text" class="form-control datepicker" id="usr" placeholder="Start date">
+            <%= f.search_field :service_date_gteq, class: 'form-control datepicker', placeholder: 'Start date' %>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
           <div class="form-group">
-            <input type="text" class="form-control datepicker" id="usr" placeholder="End date">
+            <%= f.search_field :service_date_lteq, class: 'form-control datepicker', placeholder: 'End date' %>
           </div>
         </div>
         <div class="col-md-1">
@@ -70,9 +75,9 @@
         <td><%= job_report.customer.business_name %></td>
         <td><%= job_report.user&.first_name %> <%= job_report.user&.last_name %></td>
         <td>
-          <a href="<%= certificate_app_job_report_path(job_report) %>" data-method="POST">Certificate</a> | 
-          <%= link_to 'Show', app_job_report_path(job_report) %> | 
-          <%= link_to 'Edit', edit_app_job_report_path(job_report) %> | 
+          <a href="<%= certificate_app_job_report_path(job_report) %>" data-method="POST">Certificate</a> |
+          <%= link_to 'Show', app_job_report_path(job_report) %> |
+          <%= link_to 'Edit', edit_app_job_report_path(job_report) %> |
           <%= link_to 'Destroy', app_job_report_path(job_report), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
