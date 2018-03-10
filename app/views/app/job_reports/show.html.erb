@@ -1,7 +1,16 @@
 <div class="box">
   <div class="box-header with-border">
-      <h3 class="box-title">Job Report</h3>
+    <h3 class="box-title">Job Report</h3>
+    <div class="box-tools">
+      <a href="<%= app_job_report_path(format: :pdf) %>" class="btn btn-success btn-xs" target="_blank">
+        <i class="fa fa-print"></i> Print
+      </a>
+      <a href="<%= certificate_app_job_report_path(@job_report) %>" data-method="POST" class="btn btn-success btn-xs">
+        <i class="fa fa-send"></i> Send Certificate
+      </a>
+    </div>
   </div>
+  
   <div class="box-body">
     <p>
       <strong>Job:</strong>
