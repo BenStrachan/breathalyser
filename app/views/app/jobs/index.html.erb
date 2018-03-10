@@ -55,10 +55,10 @@
       <thead>
         <tr>
           <th>Scheduled date</th>
-          <th>Customer</th>
           <th>Region</th>
-          <th>User</th>
           <th>Status</th>
+          <th>Customer</th>
+          <th>User</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -67,10 +67,10 @@
         <% @jobs.each do |job| %>
           <tr>
             <td><%= job.scheduled_date %></td>
-            <td><%= job.customer&.business_name %></td>
             <td><%= job.customer&.region %></td>
-            <td><%= job.user&.first_name %> <%= job.user&.last_name %></td>
             <td><%= job.status %></td>
+            <td><%= job.customer&.business_name %></td>
+            <td><%= job.user&.first_name %> <%= job.user&.last_name %></td>
             <td></td>
             <td>
               <a href="<%= new_app_job_report_path(customer_id: job.customer&.id, user_id: job.user&.id, job_id: job.id) %>">

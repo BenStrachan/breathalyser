@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="box-body">
-    
+
     <p>
       <strong>Customer:</strong>
       <%= @job.customer.business_name %>
@@ -18,17 +18,7 @@
 
     <p>
       <strong>User:</strong>
-      <%= @job.user&.first_name %>
-    </p>
-
-    <p>
-      <strong>Title:</strong>
-      <%= @job.title %>
-    </p>
-
-    <p>
-      <strong>Description:</strong>
-      <%= @job.description %>
+      <%= @job.user&.first_name %> <%= @job.user&.last_name %>
     </p>
 
     <p>
@@ -59,5 +49,17 @@
       <strong>Invoice number:</strong>
       <%= @job.invoice_number %>
     </p>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @job.title %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @job.description %>
+    </p>
+    <a href="<%= edit_app_job_path(@job) %>"> Edit job</a> <br>
+    <a href="<%= new_app_job_report_path(customer_id: @job.customer&.id, user_id: @job.user&.id, job_id: @job.id) %>"> Create job report</a>
   </div>
 </div>
