@@ -3,7 +3,7 @@ class App::JobsController < App::BaseController
   before_action :set_job, only: [:show, :edit, :update, :destroy, :repeat]
 
   def index
-    @query = Job.ransack(params[:q])
+    @query = Job.includes(:user, :customer).ransack(params[:q])
     @jobs = @query.result(scheduled_date: :desc)
                                      .page(params[:page])
   end

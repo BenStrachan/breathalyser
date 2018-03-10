@@ -12,10 +12,10 @@
         <%= f.input :status, collection: ['Allocated', 'Completed'] %>
       </div>
       <div class="col-md-4">
-        <%= f.input :completed_date, input_html: { class: 'datepicker' } %>
+        <%= f.input :completed_date, as: :string, input_html: { class: 'datepicker' } %>
       </div>
       <div class="col-md-4">
-        <%= f.input :scheduled_date, input_html: { class: 'datepicker' } %>
+        <%= f.input :scheduled_date, as: :string, input_html: { class: 'datepicker' } %>
       </div>
       <div class="col-md-4">
         <%= f.input :invoice_number %>

@@ -17,11 +17,17 @@
             </tr>
           </thead>
           <tbody>
-            <td><a href="#">#22</a></td>
-            <td><a href="#">business name</a></td>
-            <td><a href="#">user name</a></td>
-            <td>Jan 3 18</td>
-            <td><a href="#">edit</a></td>
+            <% @job_without_invoice.each do |job| %>
+              <tr>
+                <td><a href="<%= app_job_path(job) %>">#<%= job.id %></a></td>
+                <td><a href="<%= app_customer_path(job.customer) %>"><%= job.customer&.business_name %></a></td>
+                <td>
+                  <a href="#"><%= job.user&.full_name %></a>
+                </td>
+                <td><%= job.completed_date.try(:strftime, "%d %b, %Y") %></td>
+                <td><a href="<%= edit_app_job_path(job) %>"><i class="fa fa-pencil"></i> Edit</a></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
@@ -45,11 +51,20 @@
             </tr>
           </thead>
           <tbody>
-            <td><a href="#">#22</a></td>
-            <td><a href="#">business name</a></td>
-            <td><a href="#">user name</a></td>
-            <td>Jan 3 18</td>
-            <td><a href="#">certificate</a></td>
+            <% @jobs_without_certificate.each do |report| %>
+              <tr>
+                <td><a href="<%= app_job_path(report.job) %>">#<%= report.job.id %></a></td>
+                <td><a href="<%= app_customer_path(report.job.customer) %>"><%= report.job.customer&.business_name %></a></td>
+                <td>
+                  <a href="#"><%= report.job.user&.full_name %></a>
+                </td>
+                <td><%= report.job.completed_date.try(:strftime, "%d %b, %Y") %></td>
+                <td>
+                  <a href="<%= certificate_app_job_report_path(report) %>" data-method="POST">
+                    <i class="fa fa-inbox"></i> Certificate</a>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
@@ -74,11 +89,21 @@
             </tr>
           </thead>
           <tbody>
-            <td><a href="#">#22</a></td>
-            <td><a href="#">business name</a></td>
-            <td><a href="#">user name</a></td>
-            <td>Jan 3 18</td>
-            <td><a href="#">Report</a></td>
+            <% @job_without_report.each do |job| %>
+              <tr>
+                <td><a href="<%= app_job_path(job) %>">#<%= job.id %></a></td>
+                <td><a href="<%= app_customer_path(job.customer) %>"><%= job.customer&.business_name %></a></td>
+                <td>
+                  <a href="#"><%= job.user&.full_name %></a>
+                </td>
+                <td><%= job.completed_date.try(:strftime, "%d %b, %Y") %></td>
+                <td>
+                  <a href="<%= new_app_job_report_path(customer_id: job.customer&.id, user_id: job.user&.id, job_id: job.id) %>">
+                    <i class="fa fa-bar-chart"></i> Report
+                  </a>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
@@ -96,16 +121,22 @@
               <th>ID</th>
               <th>Customer</th>
               <th>User</th>
-              <th>Date</th>
+              <th>Scheduled Date</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <td><a href="#">#22</a></td>
-            <td><a href="#">business name</a></td>
-            <td><a href="#">user name</a></td>
-            <td>Jan 3 18</td>
-            <td><a href="#">edit</a></td>
+            <% @overdue_jobs.each do |job| %>
+              <tr>
+                <td><a href="<%= app_job_path(job) %>">#<%= job.id %></a></td>
+                <td><a href="<%= app_customer_path(job.customer) %>"><%= job.customer&.business_name %></a></td>
+                <td>
+                  <a href="#"><%= job.user&.full_name %></a>
+                </td>
+                <td><%= job.scheduled_date.try(:strftime, "%d %b, %Y") %></td>
+                <td><a href="<%= edit_app_job_path(job) %>"><i class="fa fa-pencil"></i> Edit</a></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

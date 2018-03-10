@@ -69,7 +69,12 @@
         <td><%= job_report.serial_number %></td>
         <td><%= job_report.customer.business_name %></td>
         <td><%= job_report.user&.first_name %> <%= job_report.user&.last_name %></td>
-        <td><a href="#">Certificate</a> | <%= link_to 'Show', app_job_report_path(job_report) %> | <%= link_to 'Edit', edit_app_job_report_path(job_report) %> | <%= link_to 'Destroy', app_job_report_path(job_report), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <a href="<%= certificate_app_job_report_path(job_report) %>" data-method="POST">Certificate</a> | 
+          <%= link_to 'Show', app_job_report_path(job_report) %> | 
+          <%= link_to 'Edit', edit_app_job_report_path(job_report) %> | 
+          <%= link_to 'Destroy', app_job_report_path(job_report), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

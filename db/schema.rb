@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309035453) do
+ActiveRecord::Schema.define(version: 20180310045552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20180309035453) do
     t.string "attachment_content_type"
     t.integer "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.datetime "sent_certificate_at"
     t.index ["customer_id"], name: "index_job_reports_on_customer_id"
     t.index ["job_id"], name: "index_job_reports_on_job_id"
     t.index ["user_id"], name: "index_job_reports_on_user_id"
@@ -70,8 +71,8 @@ ActiveRecord::Schema.define(version: 20180309035453) do
     t.string "user"
     t.string "title"
     t.string "description"
-    t.string "scheduled_date"
-    t.string "completed_date"
+    t.date "scheduled_date"
+    t.date "completed_date"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

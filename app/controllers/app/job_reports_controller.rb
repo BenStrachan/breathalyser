@@ -1,6 +1,6 @@
 class App::JobReportsController < ApplicationController
   layout 'admin'
-  before_action :set_job_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_job_report, only: [:show, :edit, :update, :destroy, :certificate]
 
   # GET /job_reports
   # GET /job_reports.json
@@ -64,6 +64,15 @@ class App::JobReportsController < ApplicationController
       format.html { redirect_to app_job_reports_path, notice: 'Job report was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def certificate
+    if JobReportMailer.send_certificate().deliver_now
+      @job_report.update_attribute :sent_certificate_at, Time.now
+    end
+
+    redirect_to app_job_reports_path,
+                notice: 'Certificate was successfully sent.'
   end
 
   private
