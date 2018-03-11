@@ -79,7 +79,7 @@ class App::JobReportsController < ApplicationController
   end
 
   def certificate
-    if JobReportMailer.send_certificate(@job_report).deliver_now
+    if JobReportMailer.send_certificate(@job_report).deliver_now!
       @job_report.update_attribute :sent_certificate_at, Time.now
     end
 
