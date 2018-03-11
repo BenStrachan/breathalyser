@@ -31,12 +31,12 @@
     <div style="text-align: center;">
       <h1>Wall Mounted Breathalyser</h1>
       <h2>Service & Calibration Performed by Breathalyser Sales & Service Pty Ltd</h2>
-      <h3>Calibration Certificate No: ()</h3>
+      <h3>Calibration Certificate No: #<%= job_report.id.to_s.rjust 4, '0' %></h3>
     </div>
 
     <p>
       Customer: <%= customer.business_name %> <br>
-      Site: () <br>
+      Site:  <br>
       Serial No: <%= job_report.serial_number %> <br>
     </p>
     <p>
@@ -55,6 +55,9 @@
         <strong>Cal Gas Replaced: </strong> <%= job_report.gas_replaced %><br>
       </p>
       <h3>Faults/Repairs/Comments:</h3>
+      <p>
+        <%= job_report.comment %>
+      </p>
     </div>
     <p>
       <i>
