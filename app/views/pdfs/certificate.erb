@@ -1,4 +1,7 @@
 
+<%
+  customer = job_report.job.customer
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +35,9 @@
     </div>
 
     <p>
-      Customer: () <br>
+      Customer: <%= customer.business_name %> <br>
       Site: () <br>
-      Serial No: () <br>
+      Serial No: <%= job_report.serial_number %> <br>
     </p>
     <p>
       This certifies that the instrument listed above has been serviced and calibrated by
@@ -45,11 +48,11 @@
     <div style="text-align: center">
       <h2>Service Report Details</h2>
       <p style="text-align: left; padding-left: 200px;">
-        <strong>Date: </strong> <br>
-        <strong>Technician: </strong> <br>
-        <strong>Calibration Successful: </strong> <br>
-        <strong>Manual Test Final: </strong> (BAC)<br>
-        <strong>Cal Gas Replaced: </strong> <br>
+        <strong>Date: </strong> <%= job_report.service_date %><br>
+        <strong>Technician: </strong> <%= job_report.user&.full_name %><br>
+        <strong>Calibration Successful: </strong> <%= job_report.calibration_successful %><br>
+        <strong>Manual Test Final: </strong> <%= job_report.manual_gas_final %> (BAC)<br>
+        <strong>Cal Gas Replaced: </strong> <%= job_report.gas_replaced %><br>
       </p>
       <h3>Faults/Repairs/Comments:</h3>
     </div>
